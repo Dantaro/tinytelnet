@@ -43,7 +43,7 @@ public class TinyTelnetServerFactory {
     }
 
     final class TinyTelnetServerOptions {
-        private Integer portNumber = 2701;
+        private Integer portNumber = 80;
         private Integer maxThreads = 5;
         private Map<String, TelnetAction> telnetActionMap = new HashMap<>();
         private String serverWelcome = "Connected to Server";
