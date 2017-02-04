@@ -7,14 +7,14 @@ import java.net.Socket;
 import java.util.Map;
 import java.util.Objects;
 
-public class ActionHandlerOptions {
+public class ActionDelegatorOptions {
     private final Map<String, TelnetAction> telnetActionMap;
     private final Socket socket;
     private final String serverWelcome;
 
-    public ActionHandlerOptions(@NotNull Map<String, TelnetAction> telnetActionMap,
-                                @NotNull Socket socket,
-                                @NotNull String serverWelcome) {
+    public ActionDelegatorOptions(@NotNull Map<String, TelnetAction> telnetActionMap,
+                                  @NotNull Socket socket,
+                                  @NotNull String serverWelcome) {
         this.telnetActionMap = Objects.requireNonNull(telnetActionMap);
         this.socket = Objects.requireNonNull(socket);
         this.serverWelcome = Objects.requireNonNull(serverWelcome);

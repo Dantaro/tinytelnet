@@ -16,16 +16,16 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
-public class ActionHandler implements Runnable {
+public class ActionDelegator implements Runnable {
     private final Logger logger = new BasicLogger();
     private final Socket socket;
     private final Map<String, TelnetAction> telnetActionMap;
     private final String serverWelcome;
 
-    public ActionHandler(@NotNull ActionHandlerOptions actionHandlerOptions) {
-        this.socket = Objects.requireNonNull(actionHandlerOptions.getSocket());
-        this.telnetActionMap = Objects.requireNonNull(actionHandlerOptions.getTelnetActionMap());
-        this.serverWelcome = Objects.requireNonNull(actionHandlerOptions.getServerWelcome());
+    public ActionDelegator(@NotNull ActionDelegatorOptions actionDelegatorOptions) {
+        this.socket = Objects.requireNonNull(actionDelegatorOptions.getSocket());
+        this.telnetActionMap = Objects.requireNonNull(actionDelegatorOptions.getTelnetActionMap());
+        this.serverWelcome = Objects.requireNonNull(actionDelegatorOptions.getServerWelcome());
     }
 
     @Override

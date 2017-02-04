@@ -3,8 +3,8 @@ package net.codebetweenthelines.telnet.server;
 import com.sun.istack.internal.NotNull;
 import net.codebetweenthelines.logger.BasicLogger;
 import net.codebetweenthelines.logger.Logger;
-import net.codebetweenthelines.telnet.action.ActionHandler;
-import net.codebetweenthelines.telnet.action.ActionHandlerOptions;
+import net.codebetweenthelines.telnet.action.ActionDelegator;
+import net.codebetweenthelines.telnet.action.ActionDelegatorOptions;
 import net.codebetweenthelines.telnet.action.telnetaction.TelnetAction;
 
 import java.io.IOException;
@@ -40,8 +40,8 @@ public final class TinyTelnetServer {
             ServerSocket serverSocket = new ServerSocket(this.portNumber);
 
             while (true) {
-                ActionHandlerOptions options = new ActionHandlerOptions(telnetActionMap, serverSocket.accept(), serverWelcome);
-                executorService.submit(new ActionHandler(options));
+                ActionDelegatorOptions options = new ActionDelegatorOptions(telnetActionMap, serverSocket.accept(), serverWelcome);
+                executorService.submit(new ActionDelegator(options));
             }
 
         } catch (IOException e) {
