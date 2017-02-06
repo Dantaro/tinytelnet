@@ -1,6 +1,5 @@
 package net.codebetweenthelines;
 
-import net.codebetweenthelines.telnet.telnetaction.EchoTelnetAction;
 import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 import net.codebetweenthelines.telnet.server.TinyTelnetServer;
 import net.codebetweenthelines.telnet.server.TinyTelnetServerFactory;
@@ -18,8 +17,6 @@ public class TinyTelnetExample {
                         .setTelnetActionMap(telnetActionMap)
                         .build();
 
-        if (tinyTelnetServer != null) {
-            tinyTelnetServer.start();
-        }
+        tinyTelnetServer.start();
     }
 }

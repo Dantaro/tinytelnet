@@ -42,6 +42,11 @@ public class TinyTelnetServerFactory {
         return this;
     }
 
+    public TinyTelnetServerFactory setServerWelcome(@NotNull String serverWelcome) {
+        tinyTelnetServerOptions.setServerWelcome(Objects.requireNonNull(serverWelcome));
+        return this;
+    }
+
     final class TinyTelnetServerOptions {
         private Integer portNumber = 23;
         private Integer maxThreads = 5;
