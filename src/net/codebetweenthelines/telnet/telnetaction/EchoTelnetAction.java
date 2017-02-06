@@ -1,10 +1,11 @@
-package net.codebetweenthelines.telnet.action.telnetaction;
+package net.codebetweenthelines.telnet.telnetaction;
 
 import java.net.Socket;
 import java.util.Map;
 import java.util.Optional;
 
 public class EchoTelnetAction implements TelnetAction {
+
     @Override
     public String getCommand() {
         return "echo";
@@ -12,8 +13,6 @@ public class EchoTelnetAction implements TelnetAction {
 
     @Override
     public Optional<String> execute(String userInput, final Map<String, Object> stateMap, Socket userSocket) {
-        //Strip out echo command
-        userInput = userInput.replaceFirst("(echo )", "");
         return Optional.ofNullable(userInput);
     }
 }

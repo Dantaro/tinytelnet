@@ -1,4 +1,4 @@
-package net.codebetweenthelines.telnet.action;
+package net.codebetweenthelines.telnet.telnetaction.delegator;
 
 import com.sun.istack.internal.NotNull;
 
@@ -9,7 +9,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import net.codebetweenthelines.logger.BasicLogger;
 import net.codebetweenthelines.logger.Logger;
-import net.codebetweenthelines.telnet.action.telnetaction.TelnetAction;
+import net.codebetweenthelines.telnet.telnetaction.EchoTelnetAction;
+import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +22,8 @@ public class ActionDelegator implements Runnable {
     private final Socket socket;
     private final Map<String, TelnetAction> telnetActionMap;
     private final String serverWelcome;
+
+    private final TelnetAction echoAction = new EchoTelnetAction();
 
     public ActionDelegator(@NotNull ActionDelegatorOptions actionDelegatorOptions) {
         this.socket = Objects.requireNonNull(actionDelegatorOptions.getSocket());
@@ -48,13 +51,19 @@ public class ActionDelegator implements Runnable {
                     continue;
                 }
 
-                TelnetAction telnetAction = telnetActionMap.get(input.split(" ")[0]);
-                if (telnetAction != null) {
-                    Optional<String> actionResponse = telnetAction.execute(input, stateMap, socket);
-                    actionResponse.ifPresent(writer::println);
+                Optional<String> actionResponse;
+                if (telnetActionMap.isEmpty()) {
+                    actionResponse = echoAction.execute(input, stateMap, socket);
                 } else {
-                    writer.println("Unknown command.");
+                    TelnetAction telnetAction = telnetActionMap.get(input.split(" ")[0]);
+                    if (telnetAction != null) {
+                        actionResponse = telnetAction.execute(input, stateMap, socket);
+                    } else {
+                        actionResponse = Optional.of("Unknown command.");
+                    }
                 }
+
+                actionResponse.ifPresent(writer::println);
             }
 
         } catch (Exception e) {

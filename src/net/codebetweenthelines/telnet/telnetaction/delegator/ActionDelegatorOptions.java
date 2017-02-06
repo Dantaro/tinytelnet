@@ -1,7 +1,7 @@
-package net.codebetweenthelines.telnet.action;
+package net.codebetweenthelines.telnet.telnetaction.delegator;
 
 import com.sun.istack.internal.NotNull;
-import net.codebetweenthelines.telnet.action.telnetaction.TelnetAction;
+import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 
 import java.net.Socket;
 import java.util.Map;

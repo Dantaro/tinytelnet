@@ -3,9 +3,9 @@ package net.codebetweenthelines.telnet.server;
 import com.sun.istack.internal.NotNull;
 import net.codebetweenthelines.logger.BasicLogger;
 import net.codebetweenthelines.logger.Logger;
-import net.codebetweenthelines.telnet.action.ActionDelegator;
-import net.codebetweenthelines.telnet.action.ActionDelegatorOptions;
-import net.codebetweenthelines.telnet.action.telnetaction.TelnetAction;
+import net.codebetweenthelines.telnet.telnetaction.delegator.ActionDelegator;
+import net.codebetweenthelines.telnet.telnetaction.delegator.ActionDelegatorOptions;
+import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 
 import java.io.IOException;
 import java.net.ServerSocket;

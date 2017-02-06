@@ -1,4 +1,4 @@
-package net.codebetweenthelines.telnet.action.telnetaction;
+package net.codebetweenthelines.telnet.telnetaction;
 
 import java.net.Socket;
 import java.util.Map;
