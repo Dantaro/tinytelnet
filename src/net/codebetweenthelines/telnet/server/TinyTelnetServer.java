@@ -27,7 +27,7 @@ public final class TinyTelnetServer {
 
     private TinyTelnetServer() {}
 
-    TinyTelnetServer(@NotNull TinyTelnetServerFactory.TinyTelnetServerOptions tinyTelnetServerOptions) throws IOException {
+    TinyTelnetServer(@NotNull TinyTelnetServerBuilder.TinyTelnetServerOptions tinyTelnetServerOptions) throws IOException {
         this.portNumber = Objects.requireNonNull(tinyTelnetServerOptions.getPortNumber());
         this.maxThreads = Objects.requireNonNull(tinyTelnetServerOptions.getMaxThreads());
         this.telnetActionMap = Objects.requireNonNull(tinyTelnetServerOptions.getTelnetActionMap());

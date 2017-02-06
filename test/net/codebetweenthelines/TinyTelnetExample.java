@@ -1,20 +1,15 @@
 package net.codebetweenthelines;
 
-import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 import net.codebetweenthelines.telnet.server.TinyTelnetServer;
-import net.codebetweenthelines.telnet.server.TinyTelnetServerFactory;
+import net.codebetweenthelines.telnet.server.TinyTelnetServerBuilder;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class TinyTelnetExample {
     public static void main(String... args) throws IOException {
-        Map<String, TelnetAction> telnetActionMap = new HashMap<>();
         TinyTelnetServer tinyTelnetServer =
-                TinyTelnetServerFactory
+                TinyTelnetServerBuilder
                         .getInstance()
-                        .setTelnetActionMap(telnetActionMap)
                         .build();
 
         tinyTelnetServer.start();

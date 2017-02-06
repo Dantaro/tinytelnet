@@ -3,46 +3,42 @@ package net.codebetweenthelines.telnet.server;
 import com.sun.istack.internal.NotNull;
 
 import java.io.IOException;
-import net.codebetweenthelines.logger.BasicLogger;
-import net.codebetweenthelines.logger.Logger;
 import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class TinyTelnetServerFactory {
-
-    private static Logger logger = new BasicLogger();
+public class TinyTelnetServerBuilder {
 
     private TinyTelnetServerOptions tinyTelnetServerOptions = new TinyTelnetServerOptions();
 
-    private TinyTelnetServerFactory() {}
+    private TinyTelnetServerBuilder() {}
 
-    public static TinyTelnetServerFactory getInstance() {
-        return new TinyTelnetServerFactory();
+    public static TinyTelnetServerBuilder getInstance() {
+        return new TinyTelnetServerBuilder();
     }
 
     public TinyTelnetServer build() throws IOException {
         return new TinyTelnetServer(tinyTelnetServerOptions);
     }
 
-    public TinyTelnetServerFactory setMaxThreads(@NotNull Integer maxThreads) {
+    public TinyTelnetServerBuilder setMaxThreads(@NotNull Integer maxThreads) {
         tinyTelnetServerOptions.setMaxThreads(Objects.requireNonNull(maxThreads));
         return this;
     }
 
-    public TinyTelnetServerFactory setPort(@NotNull Integer portNumber) {
+    public TinyTelnetServerBuilder setPort(@NotNull Integer portNumber) {
         tinyTelnetServerOptions.setPortNumber(Objects.requireNonNull(portNumber));
         return this;
     }
 
-    public TinyTelnetServerFactory setTelnetActionMap(@NotNull Map<String, TelnetAction> telnetActionMap) {
+    public TinyTelnetServerBuilder setTelnetActionMap(@NotNull Map<String, TelnetAction> telnetActionMap) {
         tinyTelnetServerOptions.setTelnetActionMap(Objects.requireNonNull(telnetActionMap));
         return this;
     }
 
-    public TinyTelnetServerFactory setServerWelcome(@NotNull String serverWelcome) {
+    public TinyTelnetServerBuilder setServerWelcome(@NotNull String serverWelcome) {
         tinyTelnetServerOptions.setServerWelcome(Objects.requireNonNull(serverWelcome));
         return this;
     }
