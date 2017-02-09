@@ -3,6 +3,8 @@ package net.codebetweenthelines.telnet.server;
 import com.sun.istack.internal.NotNull;
 
 import java.io.IOException;
+
+import net.codebetweenthelines.telnet.server.constant.TinyTelnetDefaultSettingConstants;
 import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 
 import java.util.HashMap;
@@ -44,10 +46,10 @@ public class TinyTelnetServerBuilder {
     }
 
     final class TinyTelnetServerOptions {
-        private Integer portNumber = 23;
-        private Integer maxThreads = 5;
+        private Integer portNumber = TinyTelnetDefaultSettingConstants.DEFAULT_PORT;
+        private Integer maxThreads = TinyTelnetDefaultSettingConstants.DEFAULT_MAX_THREADS;
         private Map<String, TelnetAction> telnetActionMap = new HashMap<>();
-        private String serverWelcome = "Connected to Server";
+        private String serverWelcome = TinyTelnetDefaultSettingConstants.DEFAULT_SERVER_WELCOME;
 
         private TinyTelnetServerOptions() {}
 

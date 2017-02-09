@@ -18,12 +18,11 @@ public final class TinyTelnetServer {
     private Logger logger = new BasicLogger();
 
     private Integer portNumber;
-
-    private Integer maxThreads = 5; //Set to default
-    private ExecutorService executorService;
-
+    private Integer maxThreads;
     private Map<String, TelnetAction> telnetActionMap;
     private String serverWelcome;
+
+    private boolean serverRunning = false;
 
     private TinyTelnetServer() {}
 
@@ -35,11 +34,12 @@ public final class TinyTelnetServer {
     }
 
     public void start() {
-        executorService = Executors.newFixedThreadPool(maxThreads);
+        serverRunning = true;
+        ExecutorService executorService = Executors.newFixedThreadPool(maxThreads);
         try {
             ServerSocket serverSocket = new ServerSocket(this.portNumber);
 
-            while (true) {
+            while (serverRunning) {
                 ActionDelegatorOptions options = new ActionDelegatorOptions(telnetActionMap, serverSocket.accept(), serverWelcome);
                 executorService.submit(new ActionDelegator(options));
             }
@@ -47,5 +47,9 @@ public final class TinyTelnetServer {
         } catch (IOException e) {
             logger.error(e);
         }
+    }
+
+    public void stop() {
+        serverRunning = false;
     }
 }
