@@ -1,12 +1,12 @@
 package net.codebetweenthelines.telnet.server;
 
-import com.sun.istack.internal.NotNull;
 import net.codebetweenthelines.telnet.server.constant.TinyTelnetDefaultSettingConstants;
 import net.codebetweenthelines.telnet.telnetaction.EchoTelnetAction;
 import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 import org.junit.Assert;
 import org.junit.Test;
 
+import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.HashMap;
@@ -110,7 +110,7 @@ public class TinyTelnetServerBuilderTest {
         }
     }
 
-    private Field getField(@NotNull TinyTelnetServer tinyTelnetServer, @NotNull String fieldName) throws NoSuchFieldException {
+    private Field getField(@Nonnull TinyTelnetServer tinyTelnetServer, @Nonnull String fieldName) throws NoSuchFieldException {
         Field field = tinyTelnetServer.getClass().getDeclaredField(fieldName);
         field.setAccessible(true);
         return field;

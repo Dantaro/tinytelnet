@@ -1,12 +1,11 @@
 package net.codebetweenthelines.telnet.server;
 
-import com.sun.istack.internal.NotNull;
-
 import java.io.IOException;
 
 import net.codebetweenthelines.telnet.server.constant.TinyTelnetDefaultSettingConstants;
 import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 
+import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -25,22 +24,22 @@ public class TinyTelnetServerBuilder {
         return new TinyTelnetServer(tinyTelnetServerOptions);
     }
 
-    public TinyTelnetServerBuilder setMaxThreads(@NotNull Integer maxThreads) {
+    public TinyTelnetServerBuilder setMaxThreads(@Nonnull Integer maxThreads) {
         tinyTelnetServerOptions.setMaxThreads(Objects.requireNonNull(maxThreads));
         return this;
     }
 
-    public TinyTelnetServerBuilder setPort(@NotNull Integer portNumber) {
+    public TinyTelnetServerBuilder setPort(@Nonnull Integer portNumber) {
         tinyTelnetServerOptions.setPortNumber(Objects.requireNonNull(portNumber));
         return this;
     }
 
-    public TinyTelnetServerBuilder setTelnetActionMap(@NotNull Map<String, TelnetAction> telnetActionMap) {
+    public TinyTelnetServerBuilder setTelnetActionMap(@Nonnull Map<String, TelnetAction> telnetActionMap) {
         tinyTelnetServerOptions.setTelnetActionMap(Objects.requireNonNull(telnetActionMap));
         return this;
     }
 
-    public TinyTelnetServerBuilder setServerWelcome(@NotNull String serverWelcome) {
+    public TinyTelnetServerBuilder setServerWelcome(@Nonnull String serverWelcome) {
         tinyTelnetServerOptions.setServerWelcome(Objects.requireNonNull(serverWelcome));
         return this;
     }
@@ -57,7 +56,7 @@ public class TinyTelnetServerBuilder {
             return portNumber;
         }
 
-        private void setPortNumber(@NotNull Integer portNumber) {
+        private void setPortNumber(@Nonnull Integer portNumber) {
             this.portNumber = Objects.requireNonNull(portNumber);
         }
 
@@ -65,7 +64,7 @@ public class TinyTelnetServerBuilder {
             return maxThreads;
         }
 
-        private void setMaxThreads(@NotNull Integer maxThreads) {
+        private void setMaxThreads(@Nonnull Integer maxThreads) {
             this.maxThreads = Objects.requireNonNull(maxThreads);
         }
 
@@ -73,7 +72,7 @@ public class TinyTelnetServerBuilder {
             return telnetActionMap;
         }
 
-        private void setTelnetActionMap(@NotNull Map<String, TelnetAction> telnetActionMap) {
+        private void setTelnetActionMap(@Nonnull Map<String, TelnetAction> telnetActionMap) {
             this.telnetActionMap = Objects.requireNonNull(telnetActionMap);
         }
 
@@ -81,7 +80,7 @@ public class TinyTelnetServerBuilder {
             return serverWelcome;
         }
 
-        private void setServerWelcome(@NotNull String serverWelcome) {
+        private void setServerWelcome(@Nonnull String serverWelcome) {
             this.serverWelcome = Objects.requireNonNull(serverWelcome);
         }
     }

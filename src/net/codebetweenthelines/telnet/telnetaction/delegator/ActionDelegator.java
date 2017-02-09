@@ -1,7 +1,5 @@
 package net.codebetweenthelines.telnet.telnetaction.delegator;
 
-import com.sun.istack.internal.NotNull;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,6 +10,7 @@ import net.codebetweenthelines.logger.Logger;
 import net.codebetweenthelines.telnet.telnetaction.EchoTelnetAction;
 import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 
+import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -25,7 +24,7 @@ public class ActionDelegator implements Runnable {
 
     private final TelnetAction echoAction = new EchoTelnetAction();
 
-    public ActionDelegator(@NotNull ActionDelegatorOptions actionDelegatorOptions) {
+    public ActionDelegator(@Nonnull ActionDelegatorOptions actionDelegatorOptions) {
         this.socket = Objects.requireNonNull(actionDelegatorOptions.getSocket());
         this.telnetActionMap = Objects.requireNonNull(actionDelegatorOptions.getTelnetActionMap());
         this.serverWelcome = Objects.requireNonNull(actionDelegatorOptions.getServerWelcome());

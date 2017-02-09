@@ -1,12 +1,11 @@
 package net.codebetweenthelines.telnet.telnetaction;
 
-import com.sun.istack.internal.NotNull;
-
+import javax.annotation.Nonnull;
 import java.net.Socket;
 import java.util.Map;
 import java.util.Optional;
 
 public interface TelnetAction {
-    String getCommand();
-    Optional<String> execute(@NotNull String userInput, @NotNull final Map<String, Object> stateMap, @NotNull Socket userSocket);
+    @Nonnull String getCommand();
+    Optional<String> execute(@Nonnull String userInput, @Nonnull final Map<String, Object> stateMap, @Nonnull Socket userSocket);
 }

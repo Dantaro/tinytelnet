@@ -1,18 +1,20 @@
 package net.codebetweenthelines.logger;
 
+import javax.annotation.Nullable;
+
 public class BasicLogger implements Logger {
     @Override
-    public void error(String message) {
+    public void error(@Nullable String message) {
         error(message, null);
     }
 
     @Override
-    public void error(Throwable error) {
+    public void error(@Nullable Throwable error) {
         error(null, error);
     }
 
     @Override
-    public void error(String message, Throwable error) {
+    public void error(@Nullable String message, @Nullable Throwable error) {
         if (message != null) {
             System.out.println(message);
         }

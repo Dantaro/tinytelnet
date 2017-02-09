@@ -1,8 +1,8 @@
 package net.codebetweenthelines.telnet.telnetaction.delegator;
 
-import com.sun.istack.internal.NotNull;
 import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 
+import javax.annotation.Nonnull;
 import java.net.Socket;
 import java.util.Map;
 import java.util.Objects;
@@ -12,9 +12,9 @@ public class ActionDelegatorOptions {
     private final Socket socket;
     private final String serverWelcome;
 
-    public ActionDelegatorOptions(@NotNull Map<String, TelnetAction> telnetActionMap,
-                                  @NotNull Socket socket,
-                                  @NotNull String serverWelcome) {
+    public ActionDelegatorOptions(@Nonnull Map<String, TelnetAction> telnetActionMap,
+                                  @Nonnull Socket socket,
+                                  @Nonnull String serverWelcome) {
         this.telnetActionMap = Objects.requireNonNull(telnetActionMap);
         this.socket = Objects.requireNonNull(socket);
         this.serverWelcome = Objects.requireNonNull(serverWelcome);

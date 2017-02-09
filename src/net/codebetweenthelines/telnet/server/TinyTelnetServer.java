@@ -1,12 +1,12 @@
 package net.codebetweenthelines.telnet.server;
 
-import com.sun.istack.internal.NotNull;
 import net.codebetweenthelines.logger.BasicLogger;
 import net.codebetweenthelines.logger.Logger;
 import net.codebetweenthelines.telnet.telnetaction.delegator.ActionDelegator;
 import net.codebetweenthelines.telnet.telnetaction.delegator.ActionDelegatorOptions;
 import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 
+import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.Map;
@@ -26,7 +26,7 @@ public final class TinyTelnetServer {
 
     private TinyTelnetServer() {}
 
-    TinyTelnetServer(@NotNull TinyTelnetServerBuilder.TinyTelnetServerOptions tinyTelnetServerOptions) throws IOException {
+    TinyTelnetServer(@Nonnull TinyTelnetServerBuilder.TinyTelnetServerOptions tinyTelnetServerOptions) throws IOException {
         this.portNumber = Objects.requireNonNull(tinyTelnetServerOptions.getPortNumber());
         this.maxThreads = Objects.requireNonNull(tinyTelnetServerOptions.getMaxThreads());
         this.telnetActionMap = Objects.requireNonNull(tinyTelnetServerOptions.getTelnetActionMap());
