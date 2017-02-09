@@ -59,7 +59,16 @@ public class TinyTelnetServerBuilderTest {
         TinyTelnetServer tinyTelnetServer = TinyTelnetServerBuilder.getInstance().setPort(portNumber).build();
         Field field = getField(tinyTelnetServer, portNumberFieldName);
         Assert.assertTrue(field.get(tinyTelnetServer).equals(portNumber));
+
+        try {
+            TinyTelnetServerBuilder.getInstance().setPort(null);
+            Assert.fail();
+        } catch (NullPointerException e) {
+            Assert.assertTrue(true);
+        }
     }
+
+    //TODO Also unit test ActionDelegator. You'll need to mock a Socket so it returns a defined input and output stream.
 
     @Test
     public void test_setMaxThreads() throws IOException, IllegalAccessException, NoSuchFieldException {
@@ -67,6 +76,13 @@ public class TinyTelnetServerBuilderTest {
         TinyTelnetServer tinyTelnetServer = TinyTelnetServerBuilder.getInstance().setMaxThreads(maxThreads).build();
         Field field = getField(tinyTelnetServer, maxThreadsFieldName);
         Assert.assertTrue(field.get(tinyTelnetServer).equals(maxThreads));
+
+        try {
+            TinyTelnetServerBuilder.getInstance().setMaxThreads(null);
+            Assert.fail();
+        } catch (NullPointerException e) {
+            Assert.assertTrue(true);
+        }
     }
 
     @Test
@@ -85,6 +101,13 @@ public class TinyTelnetServerBuilderTest {
         TinyTelnetServer tinyTelnetServer = TinyTelnetServerBuilder.getInstance().setTelnetActionMap(telnetActionHashMap).build();
         Field field = getField(tinyTelnetServer, telnetActionMapFieldName);
         Assert.assertTrue(((Map) field.get(tinyTelnetServer)).size() == 1);
+
+        try {
+            TinyTelnetServerBuilder.getInstance().setTelnetActionMap(null);
+            Assert.fail();
+        } catch (NullPointerException e) {
+            Assert.assertTrue(true);
+        }
     }
 
     private Field getField(@NotNull TinyTelnetServer tinyTelnetServer, @NotNull String fieldName) throws NoSuchFieldException {
