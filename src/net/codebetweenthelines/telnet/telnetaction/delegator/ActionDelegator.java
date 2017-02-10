@@ -25,6 +25,7 @@ public class ActionDelegator implements Runnable {
     private final TelnetAction echoAction = new EchoTelnetAction();
 
     public ActionDelegator(@Nonnull ActionDelegatorOptions actionDelegatorOptions) {
+        Objects.requireNonNull(actionDelegatorOptions);
         this.socket = Objects.requireNonNull(actionDelegatorOptions.getSocket());
         this.telnetActionMap = Objects.requireNonNull(actionDelegatorOptions.getTelnetActionMap());
         this.serverWelcome = Objects.requireNonNull(actionDelegatorOptions.getServerWelcome());
