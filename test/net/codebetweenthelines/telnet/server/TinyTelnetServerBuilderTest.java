@@ -63,7 +63,7 @@ public class TinyTelnetServerBuilderTest {
         try {
             TinyTelnetServerBuilder.getInstance().setPort(null);
             Assert.fail();
-        } catch (NullPointerException e) {
+        } catch (Exception e) {
             Assert.assertTrue(true);
         }
     }
@@ -80,7 +80,7 @@ public class TinyTelnetServerBuilderTest {
         try {
             TinyTelnetServerBuilder.getInstance().setMaxThreads(null);
             Assert.fail();
-        } catch (NullPointerException e) {
+        } catch (Exception e) {
             Assert.assertTrue(true);
         }
     }
@@ -105,7 +105,7 @@ public class TinyTelnetServerBuilderTest {
         try {
             TinyTelnetServerBuilder.getInstance().setTelnetActionMap(null);
             Assert.fail();
-        } catch (NullPointerException e) {
+        } catch (Exception e) {
             Assert.assertTrue(true);
         }
     }
