@@ -35,8 +35,11 @@ public class ActionDelegatorTest {
         runExpectedFail(() -> new ActionDelegatorOptions(new HashMap<>(), mocket, null), "test_ActionDelegatorOptions: null server welcome");
     }
 
-    //@Test
+    @Test
     public void test_run() throws IOException {
+        String returnType = System.getProperty("os.name").toLowerCase().contains("win") ? "\r\n" : "\n";
+
+
         //Check that echo server works properly
         Socket mocket = Mockito.mock(Socket.class);
         InputStream inputStream = new ByteArrayInputStream("Test\r\nExit".getBytes());
@@ -49,7 +52,7 @@ public class ActionDelegatorTest {
         ActionDelegatorOptions actionDelegatorOptions = new ActionDelegatorOptions(telnetActionMap, mocket, serverWelcome);
         ActionDelegator actionDelegator = new ActionDelegator(actionDelegatorOptions);
         actionDelegator.run();
-        Assert.assertEquals(serverWelcome + "\r\nTest\r\n", outputStream.toString());
+        Assert.assertEquals(serverWelcome + returnType + "Test" + returnType, outputStream.toString());
 
         //Check that TelnetAction works properly
         inputStream = new ByteArrayInputStream("echo Test\r\nExit".getBytes());
@@ -62,7 +65,7 @@ public class ActionDelegatorTest {
         actionDelegatorOptions = new ActionDelegatorOptions(telnetActionMap, mocket, serverWelcome);
         actionDelegator = new ActionDelegator(actionDelegatorOptions);
         actionDelegator.run();
-        Assert.assertEquals(serverWelcome + "\r\necho Test\r\n", outputStream.toString());
+        Assert.assertEquals(serverWelcome + returnType + "echo Test" + returnType, outputStream.toString());
     }
 
     private void runExpectedPass(Runnable runnable, String message) {
