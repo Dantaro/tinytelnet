@@ -68,8 +68,6 @@ public class TinyTelnetServerBuilderTest {
         }
     }
 
-    //TODO Also unit test ActionDelegator. You'll need to mock a Socket so it returns a defined input and output stream.
-
     @Test
     public void test_setMaxThreads() throws IOException, IllegalAccessException, NoSuchFieldException {
         int maxThreads = 100;
