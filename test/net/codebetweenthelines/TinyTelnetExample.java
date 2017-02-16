@@ -8,8 +8,8 @@ import java.io.IOException;
 public class TinyTelnetExample {
     public static void main(String... args) throws IOException {
         TinyTelnetServer tinyTelnetServer =
-                TinyTelnetServerBuilder
-                        .getInstance()
+                TinyTelnetServer
+                        .getBuilder()
                         .build();
 
         tinyTelnetServer.start();

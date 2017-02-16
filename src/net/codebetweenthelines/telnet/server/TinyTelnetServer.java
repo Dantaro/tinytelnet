@@ -24,6 +24,10 @@ public final class TinyTelnetServer {
 
     private boolean serverRunning = false;
 
+    public static TinyTelnetServerBuilder getBuilder() {
+        return TinyTelnetServerBuilder.getInstance();
+    }
+
     private TinyTelnetServer() {}
 
     TinyTelnetServer(@Nonnull TinyTelnetServerBuilder.TinyTelnetServerOptions tinyTelnetServerOptions) throws IOException {
