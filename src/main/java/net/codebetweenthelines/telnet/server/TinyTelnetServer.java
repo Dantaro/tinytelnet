@@ -2,9 +2,9 @@ package net.codebetweenthelines.telnet.server;
 
 import net.codebetweenthelines.logger.BasicLogger;
 import net.codebetweenthelines.logger.Logger;
+import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 import net.codebetweenthelines.telnet.telnetaction.delegator.ActionDelegator;
 import net.codebetweenthelines.telnet.telnetaction.delegator.ActionDelegatorOptions;
-import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 
 import javax.annotation.Nonnull;
 import java.io.IOException;

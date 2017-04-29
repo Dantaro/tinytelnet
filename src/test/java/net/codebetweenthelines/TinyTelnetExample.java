@@ -1,7 +1,6 @@
 package net.codebetweenthelines;
 
 import net.codebetweenthelines.telnet.server.TinyTelnetServer;
-import net.codebetweenthelines.telnet.server.TinyTelnetServerBuilder;
 
 import java.io.IOException;
 

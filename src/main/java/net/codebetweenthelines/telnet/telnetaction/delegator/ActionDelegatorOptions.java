@@ -1,5 +1,6 @@
 package net.codebetweenthelines.telnet.telnetaction.delegator;
 
+
 import net.codebetweenthelines.telnet.telnetaction.TelnetAction;
 
 import javax.annotation.Nonnull;
