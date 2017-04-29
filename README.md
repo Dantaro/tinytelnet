@@ -2,7 +2,7 @@
 #### A tiny customizable telnet server
 [![Build Status](https://travis-ci.org/Dantaro/tinytelnet.svg?branch=master)](https://travis-ci.org/Dantaro/tinytelnet)
 
-###What is TinyTelnet?
+### What is TinyTelnet?
 TinyTelnet is a small, lightweight Telnet server designed to be customizable and easily deployed in a code base.  Building out custom actions is as easy as building a class, and instantiating the server is done through a simple builder.
 
 ### How do I use TinyTelnet in my project?
